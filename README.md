@@ -13,17 +13,42 @@
 </p> -->
 </div>
 
+- [🚦 Current Status](#-current-status)
+- [🛑 Foreword](#-foreword)
+- [✨ Features](#-features)
+- [🤔 Motivation](#-motivation)
+- [🖐 Requirements](#-requirements)
+- [⏳ Installation](#-installation)
+- [🔧 Configuration](#-configuration)
+  - [Single Redis Node - with Redlock](#single-redis-node---with-redlock)
+- [🚚 Usage and API](#-usage-and-api)
+  - [Config](#config)
+  - [Connections](#connections)
+    - [Redis Client](#redis-client)
+    - [Redlock Instance](#redlock-instance)
+- [Contributing](#contributing)
+- [License](#license)
+
 ## 🚦 Current Status
 
 This package is currently under development and should be consider **ALPHA** in terms of state. I/We are currently accepting contributions and/or dedicated contributors to help develop and maintain this package.
 
-If interested please feel free to email the lead maintainer Derrick at: derrickmehaffy@gmail.com
+If interested please feel free to email the lead maintainer Derrick at: derrickmehaffy@gmail.com or ping `DMehaffy#1337` on Discord.
 
 ## 🛑 Foreword
 
-This package's lead maintainer is an employee of Strapi however this package is not officially maintained by Strapi Solutions SAS nor Strapi, Inc. and is currently maintained in the free time of the lead maintainer. **Absolutely no part of this code should be considered covered under any agreement you have with Strapi proper** including but not limited to any Enterprise Agreement you have with Strapi.
+This package's lead maintainer is an employee of Strapi however this package is not officially maintained by Strapi Solutions SAS nor Strapi, Inc. and is currently maintained in the free time of the lead maintainer. 
+
+**Absolutely no part of this code should be considered covered under any agreement you have with Strapi proper** including but not limited to any Enterprise Agreement you have with Strapi.
 
 ## ✨ Features
+
+This plugin utilizes 2 core packages:
+
+- [ioredis](https://github.com/luin/ioredis) - for all connection management
+- [node-redlock](https://github.com/mike-marcacci/node-redlock) - as a feature for providing cluster aware support to Strapi packages
+
+These are the primary features that are finished or currently being worked on:
 
 - [x] Redis Single Node Support
 - [ ] Redis Cluster Mode Support
@@ -142,6 +167,8 @@ WIP
 I/We are actively looking for contributors, maintainers, and others to help shape this package. As this plugins sole purpose within the Strapi community is to be used by other developers and plugin maintainers to help ease the connection to Redis databases.
 
 Instead of reinventing the wheel every time you need to connect to Redis, the hope is to centralize the connections in a single plugin that all plugins can piggy back on.
+
+If interested please feel free to email the lead maintainer Derrick at: derrickmehaffy@gmail.com or ping `DMehaffy#1337` on Discord.
 
 ## License
 
