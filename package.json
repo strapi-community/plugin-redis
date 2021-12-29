@@ -1,0 +1,37 @@
+{
+  "name": "strapi-plugin-redis",
+  "version": "1.0.0-alpha.1",
+  "description": "Plugin used to centralize management of Redis connections in Strapi",
+  "strapi": {
+    "displayName": "Redis",
+    "name": "redis",
+    "description": "Plugin used to centralize management of Redis connections in Strapi",
+    "required": false,
+    "kind": "plugin"
+  },
+  "dependencies": {
+    "ioredis": "4.28.2",
+    "redlock": "5.0.0-beta.1"
+  },
+  "author": {
+    "name": "Derrick Mehaffy",
+    "email": "derrickmehaffy@gmail.com",
+    "url": "https://github.com/derrickmehaffy"
+  },
+  "maintainers": [
+    {
+      "name": "Derrick Mehaffy",
+      "email": "derrickmehaffy@gmail.com",
+      "url": "https://github.com/derrickmehaffy"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/derrickmehaffy/strapi-plugin-redis/issues"
+  },
+  "homepage": "https://github.com/derrickmehaffy/strapi-plugin-redis#readme",
+  "engines": {
+    "node": ">=12.x. <=16.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
