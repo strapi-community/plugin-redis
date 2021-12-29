@@ -13,6 +13,8 @@
 </p> -->
 </div>
 
+## Table of Contents <!-- omit in toc -->
+
 - [🚦 Current Status](#-current-status)
 - [🛑 Foreword](#-foreword)
 - [✨ Features](#-features)
