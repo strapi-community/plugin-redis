@@ -20,15 +20,19 @@
   },
   "maintainers": [
     {
+      "name": "Strapi Community",
+      "url": "https://github.com/strapi-community"
+    },
+    {
       "name": "Derrick Mehaffy",
       "email": "derrickmehaffy@gmail.com",
       "url": "https://github.com/derrickmehaffy"
     }
   ],
   "bugs": {
-    "url": "https://github.com/derrickmehaffy/strapi-plugin-redis/issues"
+    "url": "https://github.com/strapi-community/strapi-plugin-redis/issues"
   },
-  "homepage": "https://github.com/derrickmehaffy/strapi-plugin-redis#readme",
+  "homepage": "https://github.com/strapi-community/strapi-plugin-redis#readme",
   "engines": {
     "node": ">=12.x. <=16.x.x",
     "npm": ">=6.0.0"
