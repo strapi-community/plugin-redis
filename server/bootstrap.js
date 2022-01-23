@@ -1,6 +1,8 @@
-'use strict';
-
+/**
+ * @typedef {import('@strapi/strapi').Strapi} Strapi
+ */
 const Redis = require("ioredis");
+const permissionsActions = require('./permissions-actions');
 
 module.exports = async ({ strapi }) => {
   const coreConfig = strapi.config.get('plugin.redis')
