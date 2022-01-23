@@ -26,7 +26,8 @@
     {
       "name": "Derrick Mehaffy",
       "email": "derrickmehaffy@gmail.com",
-      "url": "https://github.com/derrickmehaffy"
+      "url": "https://github.com/derrickmehaffy",
+      "lead": true
     }
   ],
   "bugs": {

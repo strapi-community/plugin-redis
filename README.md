@@ -3,14 +3,17 @@
 	
 <p style="margin-top: 0;">Redis Connector Package for use in other plugins and packages.</p>
 	
-<!-- <p>
+<p>
+  <a href="https://discord.strapi.io">
+    <img src="https://img.shields.io/discord/811989166782021633?color=blue&label=strapi-discord" alt="Strapi Discord">
+  </a>
   <a href="https://www.npmjs.org/package/strapi-plugin-redis">
     <img src="https://img.shields.io/npm/v/strapi-plugin-redis/latest.svg" alt="NPM Version" />
   </a>
   <a href="https://www.npmjs.org/package/strapi-plugin-redis">
     <img src="https://img.shields.io/npm/dm/strapi-plugin-redis" alt="Monthly download on NPM" />
   </a>
-</p> -->
+</p>
 </div>
 
 ## Table of Contents <!-- omit in toc -->
@@ -22,7 +25,9 @@
 - [🖐 Requirements](#-requirements)
 - [⏳ Installation](#-installation)
 - [🔧 Configuration](#-configuration)
-  - [Single Redis Node - with Redlock](#single-redis-node---with-redlock)
+  - [Single Redis Node](#single-redis-node)
+  - [Sentinel Replica (3 node)](#sentinel-replica-3-node)
+  - [Redlock](#redlock)
 - [🚚 Usage and API](#-usage-and-api)
   - [Config](#config)
   - [Connections](#connections)
@@ -35,7 +40,7 @@
 
 This package is currently under development and should be consider **ALPHA** in terms of state. I/We are currently accepting contributions and/or dedicated contributors to help develop and maintain this package.
 
-If interested please feel free to email the lead maintainer Derrick at: derrickmehaffy@gmail.com or ping `DMehaffy#1337` on Discord.
+For more information on contributing please see [the contrib message below](#contributing).
 
 ## 🛑 Foreword
 
@@ -53,9 +58,8 @@ This plugin utilizes 2 core packages:
 These are the primary features that are finished or currently being worked on:
 
 - [x] Redis Single Node Support
-- [ ] Redis Cluster Mode Support
+- [x] Redis Replica + Sentinel Support
 - [ ] Redis Sharding Support
-- [ ] Redis Sentinel Support
 - [x] Multiple connections/databases
 - [ ] Redlock Support
 
@@ -73,6 +77,8 @@ A few examples of where Redis could be used within a Strapi application:
 
 If you are currently using this package in your plugin and would like to be featured, please feel free to submit an issue to have your plugin added to the list below:
 
+- [strapi-plugin-rest-cache](https://www.npmjs.com/package/strapi-plugin-rest-cache)
+  - via: [strapi-provider-rest-cache-redis](https://www.npmjs.com/package/strapi-provider-rest-cache-redis)
 - More plugins coming soon!
 
 ## 🖐 Requirements
@@ -100,7 +106,7 @@ npm install strapi-plugin-redis --save
 
 WIP
 
-### Single Redis Node - with Redlock
+### Single Redis Node
 
 ```js
 // path ./config/plugins.js
@@ -120,6 +126,57 @@ module.exports = {
             cluster: false,
           },
         },
+      },
+      redlock: {
+        // ...
+      },
+    },
+  },
+};
+```
+
+### Sentinel Replica (3 node)
+
+```js
+// path ./config/plugins.js
+
+module.exports = {
+  redis: {
+    config: {
+      connections: {
+        default: {
+          connection: {
+            sentinels: [
+              { host: "192.168.1.101", port: 26379 },
+              { host: "192.168.1.102", port: 26379 },
+              { host: "192.168.1.103", port: 26379 },
+            ],
+            name: "my-redis-replicaSet"
+          },
+          settings: {
+            debug: false,
+            cluster: false,
+          },
+        },
+      },
+      redlock: {
+        // ...
+      },
+    },
+  },
+};
+```
+
+### Redlock
+
+```js
+// path ./config/plugins.js
+
+module.exports = {
+  redis: {
+    config: {
+      connections: {
+        // ...
       },
       redlock: {
         enabled: true,
@@ -171,6 +228,8 @@ I/We are actively looking for contributors, maintainers, and others to help shap
 Instead of reinventing the wheel every time you need to connect to Redis, the hope is to centralize the connections in a single plugin that all plugins can piggy back on.
 
 If interested please feel free to email the lead maintainer Derrick at: derrickmehaffy@gmail.com or ping `DMehaffy#1337` on Discord.
+
+**Please Note**: This package is maintained collectively by the [strapi community organization](https://github.com/strapi-community). While there may be a lead maintainer, they are not the sole maintainer of this code and this code does not below to the lead maintainer.
 
 ## License
 
