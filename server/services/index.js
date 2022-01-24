@@ -1,9 +1,9 @@
 'use strict';
 
-const config = require('./config');
+const overview = require('./overview');
 const connection = require('./connection');
 
 module.exports = {
-  config: config,
+  overview: overview,
   connection: connection,
 };

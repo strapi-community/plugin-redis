@@ -1,7 +1,7 @@
 'use strict';
 
-const config = require('./config');
+const overview = require('./overview');
 
 module.exports = {
-  config: config,
+  overview: overview,
 };

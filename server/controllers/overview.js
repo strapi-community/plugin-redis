@@ -4,7 +4,7 @@ module.exports = {
   index(ctx) {
     ctx.body = strapi
       .plugin('redis')
-      .service('config')
+      .service('overview')
       .getWelcomeMessage();
   },
 };

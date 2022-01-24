@@ -23,8 +23,8 @@ module.exports = ({ strapi }) => ({
         }
       } else {
         if (nameConfig.connection.sentinels) {
-          delete nameConfig.host;
-          delete nameConfig.port;
+          delete nameConfig.connection.host;
+          delete nameConfig.connection.port;
           try {
             strapi.redis.connections[name] = {
               client: new Redis(nameConfig.connection),
