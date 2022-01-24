@@ -11,20 +11,8 @@ module.exports = {
         },
         settings: {
           debug: false,
-          cluster: false
         }
       }
-    },
-    redlock: {
-      enabled: false,
-      databases: [],
-      options: {
-        driftFactor: 0.01,
-        retryCount: 10,
-        retryDelay: 200,
-        retryJitter: 200,
-        automaticExtensionThreshold: 500,
-      },
     },
   },
   validator(config) {},

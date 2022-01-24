@@ -27,12 +27,10 @@
 - [🔧 Configuration](#-configuration)
   - [Single Redis Node](#single-redis-node)
   - [Sentinel Replica (3 node)](#sentinel-replica-3-node)
-  - [Redlock](#redlock)
 - [🚚 Usage and API](#-usage-and-api)
   - [Config](#config)
   - [Connections](#connections)
     - [Redis Client](#redis-client)
-    - [Redlock Instance](#redlock-instance)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -53,7 +51,6 @@ This package's lead maintainer is an employee of Strapi however this package is 
 This plugin utilizes 2 core packages:
 
 - [ioredis](https://github.com/luin/ioredis) - for all connection management
-- [node-redlock](https://github.com/mike-marcacci/node-redlock) - as a feature for providing cluster aware support to Strapi packages
 
 These are the primary features that are finished or currently being worked on:
 
@@ -61,7 +58,6 @@ These are the primary features that are finished or currently being worked on:
 - [x] Redis Replica + Sentinel Support
 - [ ] Redis Sharding Support
 - [x] Multiple connections/databases
-- [ ] Redlock Support
 
 ## 🤔 Motivation
 
@@ -127,9 +123,6 @@ module.exports = {
           },
         },
       },
-      redlock: {
-        // ...
-      },
     },
   },
 };
@@ -159,36 +152,6 @@ module.exports = {
           },
         },
       },
-      redlock: {
-        // ...
-      },
-    },
-  },
-};
-```
-
-### Redlock
-
-```js
-// path ./config/plugins.js
-
-module.exports = {
-  redis: {
-    config: {
-      connections: {
-        // ...
-      },
-      redlock: {
-        enabled: true,
-        databases: ['default'],
-        options: {
-          driftFactor: 0.01,
-          retryCount: 10,
-          retryDelay: 200,
-          retryJitter: 200,
-          automaticExtensionThreshold: 500,
-        },
-      },
     },
   },
 };
@@ -202,7 +165,7 @@ This plugin directly mounts each Redis DB client and it's config on `strapi.redi
 
 Access with: `strapi.redis.config`
 
-The config key contains the entire plugin config including all ioredis instances and the redlock instance configuration. These should not be modified after bootstrapping your Strapi application (aka while the server is running) and doing so could cause redlock to fail if it's enabled.
+The config key contains the entire plugin config including all ioredis instances configurations. These should not be modified after bootstrapping your Strapi application (aka while the server is running).
 
 ### Connections
 
@@ -216,10 +179,6 @@ Accessed with: `strapi.redis.connections.default.client`
 *Note you can swap the default key with any other named database you have configured*
 
 From here you have full access to the [ioredis API](https://github.com/luin/ioredis/blob/master/API.md).
-
-#### Redlock Instance
-
-WIP
 
 ## Contributing
 
