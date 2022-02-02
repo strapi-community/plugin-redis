@@ -7,13 +7,13 @@ module.exports = {
         connection: {
           host: '127.0.0.1',
           port: 6379,
-          db: 0
+          db: 0,
         },
         settings: {
           debug: false,
-          cluster: false
-        }
-      }
+          cluster: false,
+        },
+      },
     },
     redlock: {
       enabled: false,
@@ -27,5 +27,5 @@ module.exports = {
       },
     },
   },
-  validator(config) {},
+  validator() {},
 };
