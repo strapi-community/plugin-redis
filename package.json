@@ -10,8 +10,9 @@
     "kind": "plugin"
   },
   "dependencies": {
-    "ioredis": "4.28.2",
-    "redlock": "5.0.0-beta.1"
+    "chalk": "^4.1.2",
+    "debug": "^4.3.3",
+    "ioredis": "^4.28.2"
   },
   "devDependencies": {
     "@strapi-community/eslint-config": "0.1.5",
