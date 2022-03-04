@@ -27,6 +27,7 @@
 - [🔧 Configuration](#-configuration)
   - [Single Redis Node](#single-redis-node)
   - [Sentinel Replica (3 node)](#sentinel-replica-3-node)
+  - [Using TLS with authentication](#using-tls-with-authentication)
 - [🚚 Usage and API](#-usage-and-api)
   - [Config](#config)
   - [Connections](#connections)
@@ -145,6 +146,38 @@ module.exports = {
               { host: "192.168.1.103", port: 26379 },
             ],
             name: "my-redis-replicaSet"
+          },
+          settings: {
+            debug: false,
+            cluster: false,
+          },
+        },
+      },
+    },
+  },
+};
+```
+
+### Using TLS with authentication
+
+```js
+// path ./config/plugins.js
+const { readFileSync } = require('fs')
+
+module.exports = {
+  redis: {
+    config: {
+      connections: {
+        default: {
+          connection: {
+            // @see https://github.com/luin/ioredis/blob/master/API.md#new-redisport-host-options
+            host: '127.0.0.1',
+            port: 6379,
+            db: 0,
+            user: 'username',
+            password: 'secret',
+            // @see https://github.com/luin/ioredis#tls-options
+            tls: { ca: readFileSync("cert.pem") },
           },
           settings: {
             debug: false,
