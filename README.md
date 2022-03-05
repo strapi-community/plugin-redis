@@ -13,6 +13,9 @@
   <a href="https://www.npmjs.org/package/strapi-plugin-redis">
     <img src="https://img.shields.io/npm/dm/strapi-plugin-redis" alt="Monthly download on NPM" />
   </a>
+  <a href="https://www.npmjs.org/package/strapi-plugin-redis">
+    <img src="https://img.shields.io/snyk/vulnerabilities/github/strapi-community/strapi-plugin-redis?label=snyk%20vulnerabilities" alt="Vulnerabilities on Snyk" />
+  </a>
 </p>
 </div>
 
