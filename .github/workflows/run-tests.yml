@@ -17,7 +17,7 @@ jobs:
         run: yarn
       - name: Run lint
         run: yarn eslint
-  security:
+  vulnerabilityScan:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
