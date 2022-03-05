@@ -120,7 +120,6 @@ module.exports = {
           },
           settings: {
             debug: false,
-            cluster: false,
           },
         },
       },
@@ -145,11 +144,11 @@ module.exports = {
               { host: "192.168.1.102", port: 26379 },
               { host: "192.168.1.103", port: 26379 },
             ],
-            name: "my-redis-replicaSet"
+            name: "my-redis-replicaSet",
+            db: 0,
           },
           settings: {
             debug: false,
-            cluster: false,
           },
         },
       },
@@ -177,11 +176,12 @@ module.exports = {
             user: 'username',
             password: 'secret',
             // @see https://github.com/luin/ioredis#tls-options
-            tls: { ca: readFileSync("cert.pem") },
+            tls: { 
+              ca: readFileSync("cert.pem"),
+            },
           },
           settings: {
             debug: false,
-            cluster: false,
           },
         },
       },

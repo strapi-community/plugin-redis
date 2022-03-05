@@ -8,10 +8,12 @@ module.exports = ({ strapi }) => ({
   buildAll(config) {
     const coreConfig = config
 
+    // Loop through all connections and start building and mounting them
     Object.keys(coreConfig.connections).forEach((name) => {
       debug(`${chalk.yellow('Building')} ${name} connection`);
       const nameConfig = coreConfig.connections[name];
 
+      // Check for cluster
       if (nameConfig.connection.nodes) {
         try {
           strapi.redis.connections[name] = {
@@ -21,6 +23,8 @@ module.exports = ({ strapi }) => ({
         } catch (e) {
           debug(`${chalk.red('Failed to build')} ${name} connection - ${chalk.blue('cluster')}`);
         }
+
+      // Check for sentinel config
       } else {
         if (nameConfig.connection.sentinels) {
           delete nameConfig.connection.host;
@@ -33,6 +37,8 @@ module.exports = ({ strapi }) => ({
           } catch (e) {
             debug(`${chalk.red('Failed to build')} ${name} connection - ${chalk.yellow('sentinel')}`);
           }
+
+      // Check for regular single connection
         } else {
           try {
             strapi.redis.connections[name] = {
