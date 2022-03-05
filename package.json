@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-redis",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "Plugin used to centralize management of Redis connections in Strapi",
   "strapi": {
     "displayName": "Redis",
@@ -44,7 +44,7 @@
   },
   "homepage": "https://github.com/strapi-community/strapi-plugin-redis#readme",
   "engines": {
-    "node": ">=12.x. <=16.x.x",
+    "node": ">=12.x.x <=16.x.x",
     "npm": ">=6.0.0"
   },
   "license": "MIT"
