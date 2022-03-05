@@ -6,7 +6,7 @@ const debug = require('debug')('strapi:strapi-plugin-redis');
 
 module.exports = ({ strapi }) => ({
   buildAll(config) {
-    const coreConfig = config
+    const coreConfig = config;
 
     // Loop through all connections and start building and mounting them
     Object.keys(coreConfig.connections).forEach((name) => {
@@ -25,29 +25,29 @@ module.exports = ({ strapi }) => ({
         }
 
       // Check for sentinel config
-      } else {
-        if (nameConfig.connection.sentinels) {
-          delete nameConfig.connection.host;
-          delete nameConfig.connection.port;
-          try {
-            strapi.redis.connections[name] = {
-              client: new Redis(nameConfig.connection),
-            };
-            debug(`${chalk.green('Built')} ${name} connection - ${chalk.yellow('sentinel')}`);
-          } catch (e) {
-            debug(`${chalk.red('Failed to build')} ${name} connection - ${chalk.yellow('sentinel')}`);
-          }
+      } else if (nameConfig.connection.sentinels) {
+        delete nameConfig.connection.host;
+        delete nameConfig.connection.port;
+        try {
+          strapi.redis.connections[name] = {
+            client: new Redis(nameConfig.connection),
+          };
+          debug(`${chalk.green('Built')} ${name} connection - ${chalk.yellow('sentinel')}`);
+        } catch (e) {
+          debug(`${chalk.red('Failed to build')} ${name} connection - ${chalk.yellow('sentinel')}`);
+        }
 
       // Check for regular single connection
-        } else {
-          try {
-            strapi.redis.connections[name] = {
-              client: new Redis(nameConfig.connection),
-            };
-            debug(`${chalk.green('Built')} ${name} connection - ${chalk.magenta('stand-alone')}`);
-          } catch (e) {
-            debug(`${chalk.red('Failed to build')} ${name} connection - ${chalk.magenta('stand-alone')}`);
-          }
+      } else {
+        try {
+          strapi.redis.connections[name] = {
+            client: new Redis(nameConfig.connection),
+          };
+          debug(`${chalk.green('Built')} ${name} connection - ${chalk.magenta('stand-alone')}`);
+        } catch (e) {
+          debug(
+            `${chalk.red('Failed to build')} ${name} connection - ${chalk.magenta('stand-alone')}`
+          );
         }
       }
     });

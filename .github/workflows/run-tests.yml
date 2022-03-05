@@ -3,6 +3,20 @@ name: 'Standard Tests'
 on: push
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [14, 16]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Install modules
+        run: yarn
+      - name: Run lint
+        run: yarn eslint
   security:
     runs-on: ubuntu-latest
     steps:
