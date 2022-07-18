@@ -52,7 +52,7 @@ This package's lead maintainer is an employee of Strapi however this package is 
 
 ## ✨ Features
 
-This plugin utilizes 2 core packages:
+This plugin utilizes 1 core package:
 
 - [ioredis](https://github.com/luin/ioredis) - for all connection management
 
@@ -60,7 +60,7 @@ These are the primary features that are finished or currently being worked on:
 
 - [x] Redis Single Node Support
 - [x] Redis Replica + Sentinel Support
-- [ ] Redis Sharding Support
+- [ ] Redis Sharding Support (assumed working, no config samples)
 - [x] Multiple connections/databases
 
 ## 🤔 Motivation
@@ -85,8 +85,9 @@ If you are currently using this package in your plugin and would like to be feat
 
 Supported Strapi Versions:
 
-- Strapi v4.0.x (recently tested as of January 2022)
-- Strapi v4.x.x (Assumed, but possibly not tested)
+- Strapi v4.0.x
+- Strapi v4.1.x
+- Strapi v4.2.x (Tested July 2022)
 
 **This plugin will not work with Strapi v3 projects as it utilizes APIs that don't exist in the v3!**
 
@@ -224,7 +225,7 @@ Instead of reinventing the wheel every time you need to connect to Redis, the ho
 
 If interested please feel free to email the lead maintainer Derrick at: derrickmehaffy@gmail.com or ping `DMehaffy#1337` on Discord.
 
-**Please Note**: This package is maintained collectively by the [strapi community organization](https://github.com/strapi-community). While there may be a lead maintainer, they are not the sole maintainer of this code and this code does not below to the lead maintainer.
+**Please Note**: This package is maintained collectively by the [strapi community organization](https://github.com/strapi-community). While there may be a lead maintainer, they are not the sole maintainer of this code and this code does not belong to the lead maintainer.
 
 ## License
 
