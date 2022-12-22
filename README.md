@@ -85,9 +85,15 @@ If you are currently using this package in your plugin and would like to be feat
 
 Supported Strapi Versions:
 
-- Strapi v4.0.x
-- Strapi v4.1.x
-- Strapi v4.2.x (Tested July 2022)
+| Strapi Version | Supported  | Tested On     |
+|----------------|------------|---------------|
+| v3             | ❌         | N/A           |
+| v4.0.x         | ✅         | July 2022     |
+| v4.1.x         | ✅         | July 2022     |
+| v4.2.x         | ✅         | July 2022     |
+| v4.3.x         | ✅         | December 2022 |
+| v4.4.x         | ✅         | December 2022 |
+| v4.5.x         | ✅         | December 2022 |
 
 **This plugin will not work with Strapi v3 projects as it utilizes APIs that don't exist in the v3!**
 
