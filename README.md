@@ -79,6 +79,7 @@ If you are currently using this package in your plugin and would like to be feat
 
 - [strapi-plugin-rest-cache](https://www.npmjs.com/package/strapi-plugin-rest-cache)
   - via: [strapi-provider-rest-cache-redis](https://www.npmjs.com/package/strapi-provider-rest-cache-redis)
+- [strapi-plugin-redcron](https://www.npmjs.com/package/strapi-plugin-redcron)
 - More plugins coming soon!
 
 ## 🖐 Requirements
