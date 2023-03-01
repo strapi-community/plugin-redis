@@ -184,7 +184,7 @@ module.exports = {
             host: '127.0.0.1',
             port: 6379,
             db: 0,
-            user: 'username',
+            username: 'username',
             password: 'secret',
             // @see https://github.com/luin/ioredis#tls-options
             tls: { 
