@@ -24,7 +24,7 @@ module.exports = ({ strapi }) => ({
           debug(`${chalk.red('Failed to build')} ${name} connection - ${chalk.blue('cluster')}`);
         }
 
-      // Check for sentinel config
+        // Check for sentinel config
       } else if (nameConfig.connection.sentinels) {
         delete nameConfig.connection.host;
         delete nameConfig.connection.port;
@@ -37,7 +37,20 @@ module.exports = ({ strapi }) => ({
           debug(`${chalk.red('Failed to build')} ${name} connection - ${chalk.yellow('sentinel')}`);
         }
 
-      // Check for regular single connection
+        // Check for socket connection
+      } else if (nameConfig.connection.socket) {
+        try {
+          strapi.redis.connections[name] = {
+            client: new Redis(nameConfig.socketPath)
+          };
+          debug(`${chalk.green('Built')} ${name} connection - ${chalk.magenta('socket')}`);
+        } catch (e) {
+          debug(
+            `${chalk.red('Failed to build')} ${name} connection - ${chalk.magenta('socket')}`
+          );
+        }
+
+        // Check for regular single connection
       } else {
         try {
           strapi.redis.connections[name] = {
