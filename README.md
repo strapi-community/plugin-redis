@@ -200,7 +200,31 @@ module.exports = {
   },
 };
 ```
+### Unix Socket
 
+```js
+// path ./config/plugins.js
+
+module.exports = {
+  redis: {
+    config: {
+      connections: {
+        default: {
+          connection: {
+            socket:{ 
+              socketPath: '/var/run/redis/redis.sock'
+            },
+            db: 0,
+          },
+          settings: {
+            debug: false,
+          },
+        },
+      },
+    },
+  },
+};
+```
 ## 🚚 Usage and API
 
 This plugin directly mounts each Redis DB client and it's config on `strapi.redis`
