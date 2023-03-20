@@ -209,7 +209,17 @@ module.exports = {
   redis: {
     config: {
       connections: {
-        default: {
+         default: {
+          connection: {
+            host: '127.0.0.1',
+            port: 6379,
+            db: 0,
+          },
+          settings: {
+            debug: false,
+          },
+        },
+        optional: {
           connection: {
             socket:{ 
               socketPath: '/var/run/redis/redis.sock'
