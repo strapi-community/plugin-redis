@@ -46,7 +46,7 @@ For more information on contributing please see [the contrib message below](#con
 
 ## 🛑 Foreword
 
-This package's lead maintainer is an employee of Strapi however this package is not officially maintained by Strapi Solutions SAS nor Strapi, Inc. and is currently maintained in the free time of the lead maintainer. 
+This package's lead maintainer is an employee of Strapi however this package is not officially maintained by Strapi Solutions SAS nor Strapi, Inc. and is currently maintained in the free time of the lead maintainer.
 
 **Absolutely no part of this code should be considered covered under any agreement you have with Strapi proper** including but not limited to any Enterprise Agreement you have with Strapi.
 
@@ -86,15 +86,28 @@ If you are currently using this package in your plugin and would like to be feat
 
 Supported Strapi Versions:
 
-| Strapi Version | Supported  | Tested On     |
-|----------------|------------|---------------|
-| v3             | ❌         | N/A           |
-| v4.0.x         | ✅         | July 2022     |
-| v4.1.x         | ✅         | July 2022     |
-| v4.2.x         | ✅         | July 2022     |
-| v4.3.x         | ✅         | December 2022 |
-| v4.4.x         | ✅         | December 2022 |
-| v4.5.x         | ✅         | December 2022 |
+| Strapi Version | Supported | Tested On     |
+| -------------- | --------- | ------------- |
+| v3             | ❌        | N/A           |
+| v4.0.x         | ✅        | July 2022     |
+| v4.1.x         | ✅        | July 2022     |
+| v4.2.x         | ✅        | July 2022     |
+| v4.3.x         | ✅        | December 2022 |
+| v4.4.x         | ✅        | December 2022 |
+| v4.5.x         | ✅        | December 2022 |
+| v4.6.x         | ✅        | January 2024  |
+| v4.7.x         | ✅        | January 2024  |
+| v4.8.x         | ✅        | January 2024  |
+| v4.9.x         | ✅        | January 2024  |
+| v4.10.x        | ✅        | January 2024  |
+| v4.11.x        | ✅        | January 2024  |
+| v4.12.x        | ✅        | January 2024  |
+| v4.13.x        | ✅        | January 2024  |
+| v4.14.x        | ✅        | January 2024  |
+| v4.15.x        | ✅        | January 2024  |
+| v4.16.x        | ✅        | January 2024  |
+| v4.17.x        | ✅        | January 2024  |
+| v4.19.x        | ✅        | January 2024  |
 
 **This plugin will not work with Strapi v3 projects as it utilizes APIs that don't exist in the v3!**
 
@@ -151,11 +164,11 @@ module.exports = {
         default: {
           connection: {
             sentinels: [
-              { host: "192.168.1.101", port: 26379 },
-              { host: "192.168.1.102", port: 26379 },
-              { host: "192.168.1.103", port: 26379 },
+              { host: '192.168.1.101', port: 26379 },
+              { host: '192.168.1.102', port: 26379 },
+              { host: '192.168.1.103', port: 26379 },
             ],
-            name: "my-redis-replicaSet",
+            name: 'my-redis-replicaSet',
             db: 0,
           },
           settings: {
@@ -172,7 +185,7 @@ module.exports = {
 
 ```js
 // path ./config/plugins.js
-const { readFileSync } = require('fs')
+const { readFileSync } = require('fs');
 
 module.exports = {
   redis: {
@@ -187,8 +200,8 @@ module.exports = {
             username: 'username',
             password: 'secret',
             // @see https://github.com/luin/ioredis#tls-options
-            tls: { 
-              ca: readFileSync("cert.pem"),
+            tls: {
+              ca: readFileSync('cert.pem'),
             },
           },
           settings: {
@@ -220,7 +233,7 @@ For each connection either a normal Redis client is created, or if the cluster s
 #### Redis Client
 
 Accessed with: `strapi.redis.connections.default.client`
-*Note you can swap the default key with any other named database you have configured*
+_Note you can swap the default key with any other named database you have configured_
 
 From here you have full access to the [ioredis API](https://github.com/luin/ioredis/blob/master/API.md).
 
@@ -230,7 +243,7 @@ I/We are actively looking for contributors, maintainers, and others to help shap
 
 Instead of reinventing the wheel every time you need to connect to Redis, the hope is to centralize the connections in a single plugin that all plugins can piggy back on.
 
-If interested please feel free to email the lead maintainer Derrick at: derrickmehaffy@gmail.com or ping `DMehaffy#1337` on Discord.
+If interested please feel free to email the lead maintainer Derrick at: derrickmehaffy@gmail.com or ping `DMehaffy` on Discord.
 
 **Please Note**: This package is maintained collectively by the [strapi community organization](https://github.com/strapi-community). While there may be a lead maintainer, they are not the sole maintainer of this code and this code does not belong to the lead maintainer.
 
