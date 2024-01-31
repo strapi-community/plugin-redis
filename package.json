@@ -14,14 +14,7 @@
     "debug": "4.3.4",
     "ioredis": "5.2.4"
   },
-  "devDependencies": {
-    "@strapi-community/eslint-config": "0.1.5",
-    "eslint": "8.8.0"
-  },
-  "scripts": {
-    "eslint": "eslint .",
-    "eslint:fix": "eslint . --fix"
-  },
+  "scripts": {},
   "author": {
     "name": "Derrick Mehaffy",
     "email": "derrickmehaffy@gmail.com",
@@ -43,9 +36,5 @@
     "url": "https://github.com/strapi-community/strapi-plugin-redis/issues"
   },
   "homepage": "https://github.com/strapi-community/strapi-plugin-redis#readme",
-  "engines": {
-    "node": ">=12.x.x <=18.x.x",
-    "npm": ">=6.0.0"
-  },
   "license": "MIT"
 }
