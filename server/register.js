@@ -5,7 +5,7 @@ const { default: Redlock } = require('redlock');
 
 module.exports = async ({ strapi }) => {
   // Load plugin Config
-  const coreConfig = strapi.config.get('plugin.redis');
+  const coreConfig = strapi.config.get('plugin::redis');
 
   // Configure plugin debug
   if (coreConfig.settings.debug === true) {
