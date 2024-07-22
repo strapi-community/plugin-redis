@@ -1,6 +1,6 @@
-'use strict'
+'use strict';
 
-const debug = require('debug')
+const debug = require('debug');
 
 module.exports = async ({ strapi }) => {
   // Load plugin Config
@@ -8,12 +8,12 @@ module.exports = async ({ strapi }) => {
 
   // Configure plugin debug
   if (coreConfig.settings.debug === true) {
-    debug.enable('strapi:strapi-plugin-redis')
+    debug.enable('strapi:strapi-plugin-redis');
   }
 
   // Allow plugin + ioredis debug
   if (coreConfig.settings.debug === true && coreConfig.settings.debugIORedis === true) {
-    debug.enable('strapi:strapi-plugin-redis,ioredis:*')
+    debug.enable('strapi:strapi-plugin-redis,ioredis:*');
   }
 
   // Construct Redis API
@@ -26,14 +26,15 @@ module.exports = async ({ strapi }) => {
   await strapi.plugin('redis').service('connection').buildAll(coreConfig);
 
   // Construct Admin Permissions
-  const actions = [
-    {
-      section: 'settings',
-      category: 'redis',
-      displayName: 'Access the Redis Overview page',
-      uid: 'settings.read',
-      pluginName: 'redis',
-    },
-  ];
-  await strapi.admin.services.permission.actionProvider.registerMany(actions);
+  // Commenting this since it's not needed for now, there is no admin panel for this plugin
+  // const actions = [
+  //   {
+  //     section: 'settings',
+  //     category: 'redis',
+  //     displayName: 'Access the Redis Overview page',
+  //     uid: 'settings.read',
+  //     pluginName: 'redis',
+  //   },
+  // ];
+  // await strapi.admin.services.permission.actionProvider.registerMany(actions);
 };
