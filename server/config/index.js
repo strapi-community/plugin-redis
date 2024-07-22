@@ -5,6 +5,15 @@ module.exports = {
     settings: {
       debug: false,
       debugIORedis: false,
+      redlockConfig: {
+        driftFactor: 0.01,
+        retryCount: 10,
+        retryDelay: 200,
+        retryJitter: 200,
+      },
+      enableRedlock: false,
+      lockDelay: null,
+      lockTTL: 5000,
     },
     connections: {
       default: {
