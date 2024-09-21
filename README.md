@@ -100,7 +100,8 @@ Supported Strapi Versions:
 
 Install the plugin in your Strapi project or your Strapi plugin.
 
-[!WARNING] For Strapi 4 projects you should use the `1.x.x` version of this plugin, for Strapi 5 projects you should use the `2.x.x` version of this plugin.
+**Warning**
+For Strapi 4 projects you should use the `1.x.x` version of this plugin, for Strapi 5 projects you should use the `2.x.x` version of this plugin.
 
 ```bash
 # Using Yarn (Recommended)
