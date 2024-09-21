@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-redis",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Plugin used to centralize management of Redis connections in Strapi",
   "strapi": {
     "displayName": "Redis",
@@ -11,8 +11,12 @@
   },
   "dependencies": {
     "chalk": "4.1.2",
-    "debug": "4.3.4",
-    "ioredis": "5.2.4"
+    "debug": "4.3.5",
+    "ioredis": "5.4.1",
+    "redlock": "5.0.0-beta.2"
+  },
+  "peerDependencies": {
+    "@strapi/strapi": "^5.0.0"
   },
   "scripts": {},
   "author": {
@@ -30,6 +34,9 @@
       "email": "derrickmehaffy@gmail.com",
       "url": "https://github.com/derrickmehaffy",
       "lead": true
+    },
+    {
+      "name": "Excl Networks Inc."
     }
   ],
   "bugs": {

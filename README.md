@@ -13,9 +13,6 @@
   <a href="https://www.npmjs.org/package/strapi-plugin-redis">
     <img src="https://img.shields.io/npm/dm/strapi-plugin-redis" alt="Monthly download on NPM" />
   </a>
-  <a href="https://www.npmjs.org/package/strapi-plugin-redis">
-    <img src="https://img.shields.io/snyk/vulnerabilities/github/strapi-community/strapi-plugin-redis?label=snyk%20vulnerabilities" alt="Vulnerabilities on Snyk" />
-  </a>
 </p>
 </div>
 
@@ -40,7 +37,7 @@
 
 ## 🚦 Current Status
 
-This package is currently under development and should be consider **ALPHA** in terms of state. I/We are currently accepting contributions and/or dedicated contributors to help develop and maintain this package.
+This package is currently maintained and should be considered **Stable/GA** in terms of state. I/We are currently accepting contributions and/or dedicated contributors to help develop and maintain this package.
 
 For more information on contributing please see [the contrib message below](#contributing).
 
@@ -48,13 +45,14 @@ For more information on contributing please see [the contrib message below](#con
 
 This package's lead maintainer is an employee of Strapi however this package is not officially maintained by Strapi Solutions SAS nor Strapi, Inc. and is currently maintained in the free time of the lead maintainer.
 
-**Absolutely no part of this code should be considered covered under any agreement you have with Strapi proper** including but not limited to any Enterprise Agreement you have with Strapi.
+**Absolutely no part of this code should be considered covered under any agreement you have with Strapi proper** including but not limited to any Enterprise and/or Cloud Agreement you have with Strapi.
 
 ## ✨ Features
 
-This plugin utilizes 1 core package:
+This plugin utilizes 2 core packages:
 
-- [ioredis](https://github.com/luin/ioredis) - for all connection management
+- [ioredis](https://github.com/luin/ioredis) - for all connection management to any Redis or Redis-compatible database
+- [redlock](https://github.com/mike-marcacci/node-redlock) - for distributed locks related to Strapi's built in cron-tasks system
 
 These are the primary features that are finished or currently being worked on:
 
@@ -62,6 +60,7 @@ These are the primary features that are finished or currently being worked on:
 - [x] Redis Replica + Sentinel Support
 - [ ] Redis Sharding Support (assumed working, no config samples)
 - [x] Multiple connections/databases
+- [x] Redlock capabilities with Strapi's built-in cron tasks
 
 ## 🤔 Motivation
 
@@ -72,48 +71,37 @@ A few examples of where Redis could be used within a Strapi application:
 - LRU-based response cache for REST
 - Apollo server GraphQL cache
 - IP Rate-limiting using something like [koa2-ratelimit](https://www.npmjs.com/package/koa2-ratelimit)
-- Distributed Redis locks for Strapi clusters (useful for clustered usage of cron tasks)
+- Server-side user session storage
 - So much more
 
 If you are currently using this package in your plugin and would like to be featured, please feel free to submit an issue to have your plugin added to the list below:
 
 - [strapi-plugin-rest-cache](https://www.npmjs.com/package/strapi-plugin-rest-cache)
   - via: [strapi-provider-rest-cache-redis](https://www.npmjs.com/package/strapi-provider-rest-cache-redis)
-- [strapi-plugin-redcron](https://www.npmjs.com/package/strapi-plugin-redcron)
 - More plugins coming soon!
+
+Note the following packages used to use this package with Strapi v4 but have since been merged into this package:
+
+- [strapi-plugin-redcron](https://www.npmjs.com/package/strapi-plugin-redcron)
 
 ## 🖐 Requirements
 
 Supported Strapi Versions:
 
-| Strapi Version | Supported | Tested On     |
-| -------------- | --------- | ------------- |
-| v3             | ❌        | N/A           |
-| v4.0.x         | ✅        | July 2022     |
-| v4.1.x         | ✅        | July 2022     |
-| v4.2.x         | ✅        | July 2022     |
-| v4.3.x         | ✅        | December 2022 |
-| v4.4.x         | ✅        | December 2022 |
-| v4.5.x         | ✅        | December 2022 |
-| v4.6.x         | ✅        | January 2024  |
-| v4.7.x         | ✅        | January 2024  |
-| v4.8.x         | ✅        | January 2024  |
-| v4.9.x         | ✅        | January 2024  |
-| v4.10.x        | ✅        | January 2024  |
-| v4.11.x        | ✅        | January 2024  |
-| v4.12.x        | ✅        | January 2024  |
-| v4.13.x        | ✅        | January 2024  |
-| v4.14.x        | ✅        | January 2024  |
-| v4.15.x        | ✅        | January 2024  |
-| v4.16.x        | ✅        | January 2024  |
-| v4.17.x        | ✅        | January 2024  |
-| v4.19.x        | ✅        | January 2024  |
+| Strapi Version | Plugin Version | Supported | Tested On |
+|----------------|----------------|-----------|-----------|
+| v3.x.x         | N/A            | ❌         | N/A       |
+| v4.x.x         | 1.1.0          | ✅         | Sept 2024 |
+| v5.x.x         | 2.0.0          | ✅         | Sept 2024 |
 
 **This plugin will not work with Strapi v3 projects as it utilizes APIs that don't exist in the v3!**
 
 ## ⏳ Installation
 
 Install the plugin in your Strapi project or your Strapi plugin.
+
+**Warning**
+For Strapi 4 projects you should use the `1.x.x` version of this plugin, for Strapi 5 projects you should use the `2.x.x` version of this plugin.
 
 ```bash
 # Using Yarn (Recommended)
