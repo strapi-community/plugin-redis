@@ -25,13 +25,6 @@
 - [🖐 Requirements](#-requirements)
 - [⏳ Installation](#-installation)
 - [🔧 Configuration](#-configuration)
-  - [Single Redis Node](#single-redis-node)
-  - [Sentinel Replica (3 node)](#sentinel-replica-3-node)
-  - [Using TLS with authentication](#using-tls-with-authentication)
-- [🚚 Usage and API](#-usage-and-api)
-  - [Config](#config)
-  - [Connections](#connections)
-    - [Redis Client](#redis-client)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -45,6 +38,7 @@ For more information on contributing please see [the contrib message below](#con
 
 This package's lead maintainer is an employee of Strapi however this package is not officially maintained by Strapi Solutions SAS nor Strapi, Inc. and is currently maintained in the free time of the lead maintainer.
 
+> [!WARNING]
 **Absolutely no part of this code should be considered covered under any agreement you have with Strapi proper** including but not limited to any Enterprise and/or Cloud Agreement you have with Strapi.
 
 ## ✨ Features
@@ -56,11 +50,12 @@ This plugin utilizes 2 core packages:
 
 These are the primary features that are finished or currently being worked on:
 
-- [x] Redis Single Node Support
-- [x] Redis Replica + Sentinel Support
-- [ ] Redis Sharding Support (assumed working, no config samples)
+- [ ] Updated/New Documentation outside of this README
 - [x] Multiple connections/databases
 - [x] Redlock capabilities with Strapi's built-in cron tasks
+- [ ] Admin Panel interface to see all existing connections
+- [ ] Admin Panel interface to see the stored key/values within the connections
+- [ ] Admin Panel interface to see the current server statistics
 
 ## 🤔 Motivation
 
@@ -86,6 +81,9 @@ Note the following packages used to use this package with Strapi v4 but have sin
 
 ## 🖐 Requirements
 
+> [!CAUTION]
+> This plugin will not work with Strapi v3 projects as it utilizes APIs that don't exist in the v3!
+
 Supported Strapi Versions:
 
 | Strapi Version | Plugin Version | Supported | Tested On |
@@ -94,136 +92,26 @@ Supported Strapi Versions:
 | v4.x.x         | 1.1.0          | ✅         | Sept 2024 |
 | v5.x.x         | 2.0.0          | ✅         | Sept 2024 |
 
-**This plugin will not work with Strapi v3 projects as it utilizes APIs that don't exist in the v3!**
-
 ## ⏳ Installation
+
+> [!WARNING]
+For Strapi 4 projects you should use the `1.x.x` version of this plugin, for Strapi 5 projects you should use the `2.x.x` version of this plugin.
+
+> [!NOTE]
+For Strapi 5 the package name has changed from `strapi-plugin-redis` to `@strapi-community/plugin-redis`.
 
 Install the plugin in your Strapi project or your Strapi plugin.
 
-**Warning**
-For Strapi 4 projects you should use the `1.x.x` version of this plugin, for Strapi 5 projects you should use the `2.x.x` version of this plugin.
-
-```bash
-# Using Yarn (Recommended)
-yarn add strapi-plugin-redis
-
-# Using npm
-npm install strapi-plugin-redis --save
-```
+| Strapi Version | Plugin Version | Package Manager | Command                                   |
+|----------------|----------------|-----------------|-------------------------------------------|
+| v4.x.x         | 1.1.0          | Yarn            | `yarn add strapi-plugin-redis@1.1.0`      |
+| v5.x.x         | Latest         | Yarn            | `yarn add @strapi-community/plugin-redis` |
+| v4.x.x         | 1.1.0          | npm             | `npm i strapi-plugin-redis@1.1.0`         |
+| v5.x.x         | Latest         | npm             | `npm i @strapi-community/plugin-redis`    |
 
 ## 🔧 Configuration
 
-WIP
-
-### Single Redis Node
-
-```js
-// path ./config/plugins.js
-
-module.exports = {
-  redis: {
-    config: {
-      connections: {
-        default: {
-          connection: {
-            host: '127.0.0.1',
-            port: 6379,
-            db: 0,
-          },
-          settings: {
-            debug: false,
-          },
-        },
-      },
-    },
-  },
-};
-```
-
-### Sentinel Replica (3 node)
-
-```js
-// path ./config/plugins.js
-
-module.exports = {
-  redis: {
-    config: {
-      connections: {
-        default: {
-          connection: {
-            sentinels: [
-              { host: '192.168.1.101', port: 26379 },
-              { host: '192.168.1.102', port: 26379 },
-              { host: '192.168.1.103', port: 26379 },
-            ],
-            name: 'my-redis-replicaSet',
-            db: 0,
-          },
-          settings: {
-            debug: false,
-          },
-        },
-      },
-    },
-  },
-};
-```
-
-### Using TLS with authentication
-
-```js
-// path ./config/plugins.js
-const { readFileSync } = require('fs');
-
-module.exports = {
-  redis: {
-    config: {
-      connections: {
-        default: {
-          connection: {
-            // @see https://github.com/luin/ioredis/blob/master/API.md#new-redisport-host-options
-            host: '127.0.0.1',
-            port: 6379,
-            db: 0,
-            username: 'username',
-            password: 'secret',
-            // @see https://github.com/luin/ioredis#tls-options
-            tls: {
-              ca: readFileSync('cert.pem'),
-            },
-          },
-          settings: {
-            debug: false,
-          },
-        },
-      },
-    },
-  },
-};
-```
-
-## 🚚 Usage and API
-
-This plugin directly mounts each Redis DB client and it's config on `strapi.redis`
-
-### Config
-
-Access with: `strapi.redis.config`
-
-The config key contains the entire plugin config including all ioredis instances configurations. These should not be modified after bootstrapping your Strapi application (aka while the server is running).
-
-### Connections
-
-Access with: `strapi.redis.connections`
-
-For each connection either a normal Redis client is created, or if the cluster setting is enabled and you have properly passed in an array of nodes (and optionally any cluster options) a Redis Cluster client.
-
-#### Redis Client
-
-Accessed with: `strapi.redis.connections.default.client`
-_Note you can swap the default key with any other named database you have configured_
-
-From here you have full access to the [ioredis API](https://github.com/luin/ioredis/blob/master/API.md).
+New Documentation is a WIP
 
 ## Contributing
 
@@ -231,9 +119,10 @@ I/We are actively looking for contributors, maintainers, and others to help shap
 
 Instead of reinventing the wheel every time you need to connect to Redis, the hope is to centralize the connections in a single plugin that all plugins can piggy back on.
 
-If interested please feel free to email the lead maintainer Derrick at: derrickmehaffy@gmail.com or ping `DMehaffy` on Discord.
+If interested please feel free to open up a GitHub issue/PR or ping `DMehaffy` on Discord.
 
-**Please Note**: This package is maintained collectively by the [strapi community organization](https://github.com/strapi-community). While there may be a lead maintainer, they are not the sole maintainer of this code and this code does not belong to the lead maintainer.
+> [!NOTE]
+This package is maintained collectively by the [strapi community organization](https://github.com/strapi-community). While there may be a lead maintainer, they are not the sole maintainer of this code and this code does not belong to the lead maintainer.
 
 ## License
 
