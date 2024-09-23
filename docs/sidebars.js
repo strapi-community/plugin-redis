@@ -24,11 +24,11 @@ const sidebars = {
       label: 'Configuration',
       items: [
         'redis/intro',
-        'redis/redlock',
         'redis/basic',
         'redis/sentinel',
-        'redis/cluster',
         'redis/tls-auth',
+        'redis/cluster',
+        'redis/redlock',
       ],
       collapsed: false,
     },
