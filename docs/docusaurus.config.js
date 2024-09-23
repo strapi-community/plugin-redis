@@ -8,7 +8,7 @@ const config = {
   tagline: 'Connecting Strapi to Redis with ease',
   favicon: 'img/favicon.ico',
   url: 'https://your-docusaurus-site.example.com',
-  baseUrl: '/',
+  baseUrl: 'plugin-redis/',
   organizationName: 'strapi-community', // Usually your GitHub org/user name.
   projectName: 'plugin-redis', // Usually your repo name.
   onBrokenLinks: 'throw',
