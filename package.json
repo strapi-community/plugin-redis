@@ -1,5 +1,5 @@
 {
-  "name": "strapi-plugin-redis",
+  "name": "@strapi-community/plugin-redis",
   "version": "2.0.0",
   "description": "Plugin used to centralize management of Redis connections in Strapi",
   "strapi": {
