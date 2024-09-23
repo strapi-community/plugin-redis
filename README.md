@@ -111,7 +111,7 @@ Install the plugin in your Strapi project or your Strapi plugin.
 
 ## 🔧 Configuration
 
-New Documentation is a WIP
+See our [Documentation](https://strapi-community.github.io/plugin-redis/) for more information on how to configure and use this plugin.
 
 ## Contributing
 
