@@ -7,11 +7,11 @@
   <a href="https://discord.strapi.io">
     <img src="https://img.shields.io/discord/811989166782021633?color=blue&label=strapi-discord" alt="Strapi Discord">
   </a>
-  <a href="https://www.npmjs.org/package/strapi-plugin-redis">
-    <img src="https://img.shields.io/npm/v/strapi-plugin-redis/latest.svg" alt="NPM Version" />
+  <a href="https://www.npmjs.com/package/@strapi-community/plugin-redis">
+    <img src="https://img.shields.io/npm/v/@strapi-community/plugin-redis/latest.svg" alt="NPM Version" />
   </a>
   <a href="https://www.npmjs.org/package/strapi-plugin-redis">
-    <img src="https://img.shields.io/npm/dm/strapi-plugin-redis" alt="Monthly download on NPM" />
+    <img src="https://img.shields.io/npm/dm/@strapi-community/plugin-redis" alt="Monthly download on NPM" />
   </a>
 </p>
 </div>
