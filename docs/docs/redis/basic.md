@@ -16,7 +16,7 @@ module.exports = {
       settings:{
         debug: false,
         enableRedlock: true,
-      }
+      },
       connections: {
         default: {
           connection: {
